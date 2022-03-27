@@ -1,6 +1,5 @@
 package com.tcs.edu.printer;
 
-import java.io.*;
 /**
  * Class provides methods for printing input messages
  * @author d.avilov
