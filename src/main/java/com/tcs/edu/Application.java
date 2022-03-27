@@ -1,11 +1,10 @@
 package com.tcs.edu;
 
-import com.tcs.edu.printer.ConsolePrinter;
-import com.tcs.edu.decorator.TimestampMessageDecorator;
+import static com.tcs.edu.printer.ConsolePrinter.*;
 
 class Application {
     public static void main(String[] args) {
         String message = "Hello world!";
-        ConsolePrinter.print(TimestampMessageDecorator.decorate(message));
+        printWithDecoration(message);
     }
 }
