@@ -20,6 +20,6 @@ public class ConsolePrinter {
      * @param message a string that will be print
      */
     public static void printWithDecoration(String message) {
-        print(decorate(message));
+        print(messagecount + " " + decorate(message));
     }
 }
