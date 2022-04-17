@@ -14,10 +14,16 @@ public class TimestampMessageDecorator {
      * @return decorated message
      */
 
-    public static int messagecount = 0;
+    public static int messageCount = 0;
+    public static final int PAGE_SIZE = 6;
 
     public static String decorate(String message) {
-        final var decoratedMessage = Instant.now() + " " + message;
-        return decoratedMessage;
+        messageCount ++;
+        final var decoratedMessage = String.format("%1$s %2$s %3$s", messageCount, Instant.now(), message);
+        if (messageCount > 0 & messageCount % 2 == 0) {
+            return String.format("%1$s %2$s %3$s", decoratedMessage, "\n", "---");
+        } else {
+            return decoratedMessage;
+        }
     }
 }

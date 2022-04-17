@@ -20,6 +20,8 @@ public class ConsolePrinter {
      * @param message a string that will be print
      */
     public static void printWithDecoration(String message) {
-        print(messagecount + " " + decorate(message));
+        for (int i = 0; i < PAGE_SIZE; i++) {
+            print(decorate(message));
+        }
     }
 }
