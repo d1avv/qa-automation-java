@@ -11,7 +11,7 @@ class Application {
         String message = "Hello world!";
 
         //printWithDecoration(Severity.MINOR, message);
-        for (int i = 0; i < PAGE_SIZE; i++) {
+        for (int i = 0; i < PAGE_SIZE ; i++) {
             switch (i) {
                 case 0: {
                     processMessage(Severity.MINOR, message);
@@ -39,5 +39,11 @@ class Application {
                 }
             }
         }
+//        processMessage(Severity.MINOR, message);
+//        processMessage(Severity.REGULAR, message);
+//        processMessage(Severity.REGULAR, message);
+//        processMessage(Severity.MAJOR, message);
+//        processMessage(Severity.MINOR, message);
+//        processMessage(Severity.MAJOR, message);
     }
 }

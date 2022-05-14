@@ -8,10 +8,13 @@ public class MessageService {
     /**
      * API
      */
-    public static void processMessage (Severity level, String message) {
-        final String prefixDecoratedMessage = TimestampMessageDecorator.decorate(message);
-        final String severity = SeverityDecorator.mapToString(level);
+    public static void processMessage (Severity level,String message, String... messages) {
+         String severity = SeverityDecorator.mapToString(level);
 
-        ConsolePrinter.print(severity + " " + prefixDecoratedMessage);
+        ConsolePrinter.print(severity + " " + TimestampMessageDecorator.decorate(message));
+
+        for (String current : messages) {
+            ConsolePrinter.print(severity + " " + TimestampMessageDecorator.decorate(current));
+        }
     }
 }
