@@ -1,6 +1,9 @@
 package com.tcs.edu;
 
 import com.tcs.edu.decorator.Severity;
+import com.tcs.edu.decorator.MessageOrder;
+
+import java.io.Console;
 
 import static com.tcs.edu.printer.ConsolePrinter.*;
 import static com.tcs.edu.printer.MessageService.*;
@@ -9,9 +12,10 @@ import static com.tcs.edu.decorator.TimestampMessageDecorator.*;
 class Application {
     public static void main(String[] args) {
         String message = "Hello world!";
+        String[] messages = {"Hello world!", "Hello world!", "Hello world!", "Hello world!", "Hello world!", "Hello world!"};
 
         //printWithDecoration(Severity.MINOR, message);
-        for (int i = 0; i < PAGE_SIZE ; i++) {
+        for (int i = 0; i < 6; i++) {
             switch (i) {
                 case 0: {
                     processMessage(Severity.MINOR, message);
@@ -39,11 +43,11 @@ class Application {
                 }
             }
         }
-//        processMessage(Severity.MINOR, message);
-//        processMessage(Severity.REGULAR, message);
-//        processMessage(Severity.REGULAR, message);
-//        processMessage(Severity.MAJOR, message);
-//        processMessage(Severity.MINOR, message);
-//        processMessage(Severity.MAJOR, message);
+        processMessage(null, message, null);
+
+        processMessage(Severity.MINOR, MessageOrder.DESC, messages);
+        System.out.println("-------------------------");
+        processMessage(Severity.MINOR, MessageOrder.ASC, messages);
+
     }
 }
