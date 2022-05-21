@@ -1,9 +1,6 @@
 package com.tcs.edu.printer;
 
-import com.tcs.edu.decorator.MessageOrder;
-import com.tcs.edu.decorator.Severity;
-import com.tcs.edu.decorator.SeverityDecorator;
-import com.tcs.edu.decorator.TimestampMessageDecorator;
+import com.tcs.edu.decorator.*;
 import com.tcs.edu.decorator.MessageOrder;
 
 import static com.tcs.edu.decorator.TimestampMessageDecorator.PAGE_SIZE;
@@ -37,6 +34,28 @@ public class MessageService {
         } else {
             for (int index = 0; index < messages.length; index++) {
                 //ConsolePrinter.print(severity + " " + TimestampMessageDecorator.decorate(message));
+                int counter = index + 1;
+                ConsolePrinter.print(TimestampMessageDecorator.decorate(messages[index]) + " " + counter + " " + severity);
+            }
+        }
+    }
+
+    public static void processMessage(Severity level, MessageOrder order, Doubling doubling, String message, String... messages){
+        String severity = SeverityDecorator.mapToString(level);
+        if (doubling == Doubling.DISTINCT) {
+            String[] array = new String[messages.length];
+            for (int i = 0; i < messages.length; i++) {
+                ConsolePrinter.print(TimestampMessageDecorator.decorate(messages[i])+" " + severity);
+                array[i] = messages[i];
+                if (array[i].equals(messages[i+1])){
+                    return;
+            } else {
+                    ConsolePrinter.print(TimestampMessageDecorator.decorate(messages[i])+" " + severity);
+                }
+            }
+
+        } else {
+            for (int index = 0; index < messages.length; index++) {
                 int counter = index + 1;
                 ConsolePrinter.print(TimestampMessageDecorator.decorate(messages[index]) + " " + counter + " " + severity);
             }
