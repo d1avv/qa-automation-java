@@ -7,7 +7,7 @@ package com.tcs.edu.decorator;
 public class SeverityDecorator {
     public static String mapToString(Severity severity) {
         String severityString;
-        switch (severity){
+        switch (severity) {
             case MAJOR: {
                 severityString = "(!!!)";
                 break;
@@ -20,7 +20,7 @@ public class SeverityDecorator {
                 severityString = "()";
                 break;
             }
-            default:{
+            default: {
                 severityString = null;
             }
         }
